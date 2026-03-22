@@ -129,8 +129,6 @@ def register():
 
         if not username or not password:
             error = "Fields cannot be empty"
-        elif not is_valid_password(password):
-            error = "Password must include uppercase, lowercase, number, and special character"
         else:
             conn = get_db()
             try:
