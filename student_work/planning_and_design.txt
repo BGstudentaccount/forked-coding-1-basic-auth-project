@@ -11,8 +11,6 @@ APP PLANNING & DESIGN
 - What about your app will require a log-in structure?
     Online functionality and data transfer.
 
--Maybe a Pac-Man app - we could copy over the code from the last project + insert it into an app structure.
-
 2. CORE FUNCTIONALITY
 -------------------------
 - What are the essential features your app must have?  
