@@ -7,6 +7,7 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 # ---------- DATABASE SETUP ----------
+# How to fix this so it works?
 def is_valid_password(password):
     if (re.search(r"[A-Z]", password) and   # uppercase
         re.search(r"[a-z]", password) and   # lowercase
