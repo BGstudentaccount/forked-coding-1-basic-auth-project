@@ -54,4 +54,4 @@ GET: Already have
 POST: Already have
 PUT: Option for changing/editing password
 DELETE: Delete sessions/cookies after a set amount of time 
-Delete users account from the database / app if they request such
+Delete a user's account from the database / app if they request such
