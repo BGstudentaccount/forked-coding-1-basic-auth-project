@@ -47,3 +47,10 @@ APP PLANNING & DESIGN
     Menu and GUI customization.
 - Are there interactive elements, like games, quizzes, or badges, you could include?
     To be decided.
+
+How to do four web requests:
+
+GET: Already have
+POST: Already have
+PUT: Option for changing/editing password
+DELETE: Delete account from database / app
