@@ -7,7 +7,6 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 # ---------- DATABASE SETUP ----------
-# How to fix this so it works?
 def is_valid_password(password):
     if (re.search(r"[A-Z]", password) and   # uppercase
         re.search(r"[a-z]", password) and   # lowercase
@@ -46,7 +45,7 @@ body {
     height: 100vh;
 }
 .card {
-    background: gray;
+    background: white;
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -62,7 +61,7 @@ button {
     padding: 10px;
     width: 60%;
     background: #4CAF50;
-    color: orange;
+    color: white;
     border: none;
 }
 .error {
@@ -139,6 +138,8 @@ def register():
 
         if not username or not password:
             error = "Fields cannot be empty"
+        elif not is_valid_password(password):
+            error = "Password must include uppercase, lowercase, number, and special character"
         else:
             conn = get_db()
             try:
