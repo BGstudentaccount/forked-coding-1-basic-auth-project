@@ -46,7 +46,7 @@ APP PLANNING & DESIGN
 - What customization or fun features could users enjoy?
     Menu and GUI customization.
 - Are there interactive elements, like games, quizzes, or badges, you could include?
-    A message
+    A messageboard
 
 How to do four web requests:
 
