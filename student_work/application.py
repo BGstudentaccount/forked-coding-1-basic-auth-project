@@ -118,6 +118,15 @@ secret_page = f"""{base_style}
 <a href="/logout"><button>Logout</button></a><br>
 <a href="/delete_account"><button2>Delete account</button2></a><br>
 </div>
+<div class="card">
+<h2>🎉 Message Board</h2>
+<h3>Welcome, {{{{ username }}}}!</h3>
+<p>Type in the text box below to leave a message!</p>
+<form method="POST">
+  <input name="message" placeholder="Type here"><br>
+  <button type="submit">Send Message</button>
+</form>
+</div>
 """
 
 # ---------- ROUTES ----------
@@ -184,6 +193,24 @@ def secret():
     if "user" not in session:
         return redirect(url_for("login"))
     return render_template_string(secret_page, username=session["user"])
+
+#trying to figure out message board code - would be part of the secret room
+@app.route("/message", methods=["GET", "POST"])
+def message():
+    error = ""
+    if request.method == "POST":
+        username = request.form["type_message"].strip()
+
+        if not type_message:
+            error = "Fields cannot be empty"
+        else:
+            conn = get_db()
+            try:
+                conn.commit()
+            finally:
+                conn.close()
+
+    return render_template_string(message_board, error=error)
 
 @app.route("/logout")
 def logout():
