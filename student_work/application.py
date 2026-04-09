@@ -20,6 +20,13 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
+#i added the code below
+def get_db():
+    conn = sqlite3.connect("users.db")
+    conn.row_factory = sqlite3.Row
+    return conn
+#i added the code above
+
 def init_db():
     conn = get_db()
     conn.execute("""
@@ -102,6 +109,7 @@ secret_page = f"""{base_style}
 <h3>Welcome, {{{{ username }}}}!</h3>
 <p>You got into the secret room!</p>
 <a href="/logout"><button>Logout</button></a>
+<a href="/delete_account"><button>Delete account</button></a>
 </div>
 """
 
@@ -174,6 +182,12 @@ def secret():
 def logout():
     session.pop("user", None)
     return redirect(url_for("login"))
+#I added the code below this
+@app.route("/delete_account")
+def delete_account():
+    session.pop("user", None)
+    return redirect(url_for("login"))
+#I added the code above this
 
 # ---------- RUN ----------
 app.run(host="0.0.0.0", port=3000)
