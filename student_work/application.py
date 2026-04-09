@@ -119,13 +119,22 @@ secret_page = f"""{base_style}
 <a href="/delete_account"><button2>Delete account</button2></a><br>
 </div>
 <div class="card">
-<h2>🎉 Message Board</h2>
+<h2> Message Board</h2>
 <h3>Welcome, {{{{ username }}}}!</h3>
 <p>Type in the text box below to leave a message!</p>
 <form method="POST">
   <input name="message" placeholder="Type here"><br>
   <button type="submit">Send Message</button>
 </form>
+</div>
+"""
+
+message_board = f"""{base_style}
+<div class="card">
+<h2>Message board </h2>
+<h3>Message from: {{{{ username }}}}!</h3>
+<p>{{{{ message }}}}</p>
+<a href="/logout"><button>Logout</button></a><br>
 </div>
 """
 
@@ -201,14 +210,12 @@ def message():
     if request.method == "POST":
         username = request.form["type_message"].strip()
 
-        if not type_message:
-            error = "Fields cannot be empty"
-        else:
-            conn = get_db()
-            try:
-                conn.commit()
-            finally:
-                conn.close()
+        conn = get_db()
+        try:
+            conn.commit()
+        finally:
+            conn.close()
+        return redirect(url_for("message"))
 
     return render_template_string(message_board, error=error)
 
