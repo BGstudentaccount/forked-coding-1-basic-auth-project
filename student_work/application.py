@@ -71,6 +71,13 @@ button {
     color: white;
     border: none;
 }
+button2 {
+    padding: 10px;
+    width: 60%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+}
 .error {
     color: red;
 }
@@ -108,8 +115,8 @@ secret_page = f"""{base_style}
 <h2>🎉 Secret Room</h2>
 <h3>Welcome, {{{{ username }}}}!</h3>
 <p>You got into the secret room!</p>
-<a href="/logout"><button>Logout</button></a>
-<a href="/delete_account"><button>Delete account</button></a>
+<a href="/logout"><button>Logout</button></a><br>
+<a href="/delete_account"><button2>Delete account</button2></a><br>
 </div>
 """
 
