@@ -122,6 +122,7 @@ secret_page = f"""{base_style}
 <h2> Message Board</h2>
 <h3>Welcome, {{{{ username }}}}!</h3>
 <p>Type in the text box below to leave a message!</p>
+<p>The last messages sent were !</p>
 <form method="POST">
   <input name="message" placeholder="Type here"><br>
   <button type="submit">Send Message</button>
@@ -208,14 +209,20 @@ def secret():
 def message():
     error = ""
     if request.method == "POST":
-        username = request.form["type_message"].strip()
+        message = request.form["type_message"].strip()
 
         conn = get_db()
-        try:
-            conn.commit()
-        finally:
-            conn.close()
-        return redirect(url_for("message"))
+        conn.execute("INSERT INTO users (username, password) VALUES (?, ?)",
+                    (message)
+                )
+        conn.commit()
+
+        return redirect(url_for("secret"))
+        #try:
+        #    conn.commit()
+        #finally:
+         #   conn.close()
+        #return redirect(url_for("message"))
 
     return render_template_string(message_board, error=error)
 
