@@ -120,47 +120,6 @@ register_page = f"""{base_style}
 </div>
 """
 
-<<<<<<< HEAD
-secret_page = f"""{base_style}
-<div class="card">
-<h2>🎉 Secret Room</h2>
-<h3>Welcome, {{{{ username }}}}!</h3>
-<p>You got into the secret room!</p>
-<a href="/logout"><button>Logout</button></a><br>
-<a href="/delete_account"><button2>Delete account</button2></a><br>
-</div>
-<div class="card">
-<h2> Message Board</h2>
-<h3>Welcome, {{{{ username }}}}!</h3>
-<p>Type in the text box below to leave a message!</p>
-<p>The last messages sent were !</p>
-<form method="POST">
-  <input name="message" placeholder="Type here"><br>
-  <button type="submit">Send Message</button>
-</form>
-</div>
-"""
-=======
-# secret_page = f"""{base_style}
-# <div class="card">
-# <h2>🎉 Secret Room</h2>
-# <h3>Welcome, {{{{ username }}}}!</h3>
-# <p>You got into the secret room!</p>
-# <a href="/logout"><button>Logout</button></a><br>
-# <a href="/delete_account"><button2>Delete account</button2></a><br>
-# </div>
-# <div class="card">
-# <h2>🎉 Message Board</h2>
-# <h3>Welcome, {{{{ username }}}}!</h3>
-# <p>Type in the text box below to leave a message!</p>
-# <form method="POST">
-#   <input name="message" placeholder="Type here"><br>
-#   <button type="submit">Send Message</button>
-# </form>
-# </div>
-# """
->>>>>>> 376e0b1 (commented secret room out)
-
 message_board = f"""{base_style}
 <div class="card">
 <h2>Message board </h2>
