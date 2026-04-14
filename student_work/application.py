@@ -20,6 +20,10 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 06d4a2d (final)
 def init_db():
     conn = get_db()
     conn.execute("""
@@ -32,6 +36,19 @@ def init_db():
     conn.close()
 
 init_db()
+
+def init_messages_db():
+    conn = get_db()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS messages (
+            message TEXT PRIMARY KEY,
+            author TEXT
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+init_messages_db()
 
 # ---------- STYLE ----------
 base_style = """
