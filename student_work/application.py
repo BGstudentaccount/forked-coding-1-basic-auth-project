@@ -20,10 +20,6 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 06d4a2d (final)
 def init_db():
     conn = get_db()
     conn.execute("""
