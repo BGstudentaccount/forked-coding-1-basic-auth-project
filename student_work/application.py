@@ -20,13 +20,6 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
-#i added the code below
-def get_db():
-    conn = sqlite3.connect("users.db")
-    conn.row_factory = sqlite3.Row
-    return conn
-#i added the code above
-
 def init_db():
     conn = get_db()
     conn.execute("""
@@ -110,6 +103,7 @@ register_page = f"""{base_style}
 </div>
 """
 
+<<<<<<< HEAD
 secret_page = f"""{base_style}
 <div class="card">
 <h2>🎉 Secret Room</h2>
@@ -129,6 +123,26 @@ secret_page = f"""{base_style}
 </form>
 </div>
 """
+=======
+# secret_page = f"""{base_style}
+# <div class="card">
+# <h2>🎉 Secret Room</h2>
+# <h3>Welcome, {{{{ username }}}}!</h3>
+# <p>You got into the secret room!</p>
+# <a href="/logout"><button>Logout</button></a><br>
+# <a href="/delete_account"><button2>Delete account</button2></a><br>
+# </div>
+# <div class="card">
+# <h2>🎉 Message Board</h2>
+# <h3>Welcome, {{{{ username }}}}!</h3>
+# <p>Type in the text box below to leave a message!</p>
+# <form method="POST">
+#   <input name="message" placeholder="Type here"><br>
+#   <button type="submit">Send Message</button>
+# </form>
+# </div>
+# """
+>>>>>>> 376e0b1 (commented secret room out)
 
 message_board = f"""{base_style}
 <div class="card">
@@ -198,11 +212,11 @@ def register():
 
     return render_template_string(register_page, error=error)
 
-@app.route("/secret")
-def secret():
-    if "user" not in session:
-        return redirect(url_for("login"))
-    return render_template_string(secret_page, username=session["user"])
+# @app.route("/secret")
+# def secret():
+#     if "user" not in session:
+#         return redirect(url_for("login"))
+#     return render_template_string(secret_page, username=session["user"])
 
 #trying to figure out message board code - would be part of the secret room
 @app.route("/message", methods=["GET", "POST"])
